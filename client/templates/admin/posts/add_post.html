@@ -1,0 +1,21 @@
+<template name="add_post">
+  <div class="container pt">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h2>Create Post</h2>
+          <form class="add_post_form">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" name="title" id="title" class="form-control" placeholder="Post Title">
+            </div>
+            <div class="form-group">
+              <label for="body">Body</label>
+              <textarea name="body" id="body" class="form-control" placeholder="Write Something ..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="/admin/posts" class="btn btn-default">Go Back</a>
+          </form>
+        </div>
+    </div>
+  </div>
+</template>
