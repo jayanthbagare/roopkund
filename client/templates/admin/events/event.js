@@ -86,8 +86,8 @@ Template.list_events.helpers({
 	},
   getClient: function(client){
     console.log('Inside getClient ' + client);
-    var clientName =  Clients.find({"_id":client},{fields:{'name'}});
-    console.log(clientName.name);
+    //var clientName =  Clients.find({"_id":client},{fields:{'name'}});
+    //console.log(clientName.name);
   }
 });
 
