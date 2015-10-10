@@ -29,3 +29,5 @@ cfs:standard-packages
 cfs:gridfs
 cfs:filesystem
 tsega:bootstrap3-datetimepicker
+jeremy:selectize
+natestrauser:select2

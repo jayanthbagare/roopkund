@@ -1,12 +1,12 @@
-<template name="edit_project">
+<template name="edit_event">
     <div class="container pt">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>Edit Project</h2> <small>{{name}}</small>
-                <form class="edit_project_form" enctype="multipart/form-data">
+                <h2>Edit event</h2> <small>{{name}}</small>
+                <form class="edit_event_form" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Project Name" value="{{name}}">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="event Name" value="{{name}}">
                     </div>
                    <div class="form-group">
                      <label>Date and Time</label>
@@ -24,21 +24,21 @@
                     </div>
                     <div class="form-group">
                         <label>Type</label>
-                        <input type="text" class="form-control" id="type" name="type" placeholder="Project Type" value="{{type}}">
+                        <input type="text" class="form-control" id="type" name="type" placeholder="event Type" value="{{type}}">
                     </div>
                     <div class="form-group">
                         <label>Description</label>
                         <textarea class="form-control" id="description" name="description" placeholder="Description">{{description}}</textarea>
                     </div>
                     <div class="form-group">
-                        <label>Project Image</label>
-                        <input type="file" name="projectImage" id="projectImage">
+                        <label>event Image</label>
+                        <input type="file" name="eventImage" id="eventImage">
 
                         Current Image: <img class="edit-image" src="{{eventImages}}">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="/admin/projects" class="btn btn-default">Go Back</a>
+                    <a href="/admin/events" class="btn btn-default">Go Back</a>
                 </form>
             </div>
         </div>

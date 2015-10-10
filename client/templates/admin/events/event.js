@@ -1,4 +1,4 @@
-Template.add_project.onRendered(function() {
+Template.add_event.onRendered(function() {
     this.$('.datetimepicker').datetimepicker({
 
     });
@@ -7,12 +7,12 @@ Template.add_project.onRendered(function() {
     this.$('#client').selectize();
 });
 
-Template.edit_project.onRendered(function() {
+Template.edit_event.onRendered(function() {
     this.$('.datetimepicker').datetimepicker();
 });
 
-Template.add_project.events({
-  'submit .add_project_form': function(event){
+Template.add_event.events({
+  'submit .add_event_form': function(event){
     FS.Debug = true;
     var name = event.target.name.value;
     var description = event.target.description.value;
@@ -20,7 +20,7 @@ Template.add_project.events({
     var type = event.target.type.value;
     var eventDate = event.target.eventDate.value;
 
-    var file = $('#projectImage').get(0).files[0];
+    var file = $('#eventImage').get(0).files[0];
 
     if(file){
       fsFile = new FS.File(file);
@@ -60,15 +60,15 @@ Template.add_project.events({
 
 });
 
-Template.list_projects.helpers({
+Template.list_events.helpers({
 	events: function(){
 		return Events.find();
 	}
 });
 
-Template.list_projects.events({
+Template.list_events.events({
   //Delete the Event
-  'click .delete_project': function(event){
+  'click .delete_event': function(event){
     if(confirm('Are you sure to delete this'))
     {
         Events.remove(this._id);
@@ -77,7 +77,7 @@ Template.list_projects.events({
   }
 });
 
-Template.add_project.helpers({
+Template.add_event.helpers({
   getClients: function(){
     return Clients.find();
   }

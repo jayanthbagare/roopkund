@@ -1,0 +1,36 @@
+<template name="list_events">
+    <div class="container pt">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Today's Events</h2>
+               <a href="/admin/events/add" class="btn btn-primary btn-tiny">Create an Event</a>
+                <br><br>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Event Name</th>
+												<th>Client Name</th>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th></th>
+                    </tr>
+                    {{#each events}}
+                        <tr>
+                            <td>{{name}}</td>
+														<td>{{client}}</td>
+                            <td>{{eventDate}}</td>
+                            <td>{{type}}</td>
+                            <td><a href="/admin/events/{{_id}}/edit" class="btn btn-default btn-tiny">Edit</a> <button class="btn btn-default delete_event">Delete</button></td>
+                        </tr>
+                    {{else}}
+                        <tr>
+                            <td>There are no events</td>
+                        </tr>
+                    {{/each}}
+                </table>
+            </div>
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</template>
