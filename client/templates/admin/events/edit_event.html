@@ -1,0 +1,44 @@
+<template name="edit_event">
+    <div class="container pt">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Edit event - <small>{{name}}</small></h2>
+                <form class="edit_event_form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="event Name" value="{{name}}">
+                    </div>
+                   <div class="form-group">
+                     <label>Date and Time</label>
+                     <div class='input-group datetimepicker' id='datetimepicker'>
+                         <input type='text' class="set-due-date form-control" value="{{eventDate}}" />
+                         <span class="input-group-addon">
+                           <i class="glyphicon glyphicon-calendar"></i>
+                         </span>
+                     </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Client</label>
+                        {{#with getClient}}
+                          <input type="text" class="form-control" id="client" name="client" placeholder="Client Name" value="{{name}}" disabled>
+                        {{/with}}
+                    </div>
+                    <div class="form-group">
+                        <label>Type</label>
+                        <input type="text" class="form-control" id="type" name="type" placeholder="event Type" value="{{type}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" id="description" name="description" placeholder="Description">{{description}}</textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="/admin/events" class="btn btn-default">Go Back</a>
+                </form>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</template>

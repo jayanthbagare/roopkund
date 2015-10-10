@@ -1,0 +1,45 @@
+<template name="list_events">
+    <div class="container pt">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Today's Appointments</h2>
+               <a href="/admin/events/add" class="btn btn-default btn-tiny pull-right footer-icons">
+                 <i class="glyphicon glyphicon-plus"></i>
+                 Create One
+               </a>
+                <br><br>
+            </div>
+
+            <div class="col-lg-8 col-lg-offset-2">
+                {{#each getEvents}}
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">{{name}}</h3>
+                  </div>
+                  <div class="panel-body">
+                    {{type}}
+
+                    <p class="pull-right">{{eventDate}}</p>
+                    {{#with getClient}}
+                      <p>{{name}}</p>
+                    {{/with}}
+
+                  </div>
+                  <div class="panel-footer">
+                      <a href="/admin/events/{{_id}}/edit" class="btn btn-default btn-tiny footer-icons">
+                          <i class="glyphicon glyphicon-pencil"></i>
+                        Edit Appointment
+                      </a>
+                      <a href="#" class="btn btn-default btn-tiny delete_event footer-icons">
+                          <i class="glyphicon glyphicon-remove"></i>
+                        Cancel Appointment
+                      </a>
+                </div>
+            </div>
+                {{/each}}
+
+            </div>
+        </div>
+    </div>
+
+</template>

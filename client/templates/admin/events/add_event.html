@@ -1,0 +1,55 @@
+<template name="add_event">
+    <script type="text/javascript" src="selectize.js"></script>
+    <link rel="stylesheet" type="text/css" href="selectize.css" media="screen" title="no title" charset="utf-8">
+
+    <div class="container pt">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Create Appointment</h2>
+                <form class="add_event_form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Event Title">
+                    </div>
+                     <div class="form-group">
+                         <label>Date and Time</label>
+                        <div class='input-group datetimepicker' id='datetimepicker'>
+                            <input type='text' class="set-due-date form-control eventDate" id="eventDate" />
+                            <span class="input-group-addon">
+                              <i class="glyphicon glyphicon-calendar"></i>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <!-- <div class="form-group">
+                        <label>Client</label>
+                        <input type="text" class="form-control" id="client" name="client" placeholder="Client Name">
+                    </div> -->
+                    <div class="form-group">
+                      <label>Client</label>
+                      <select id="client" name="client" placeholder="Select a client..">
+                        <option value="">Select a Client..</option>
+                        {{#each getClients}}
+                          <option value="{{_id}}">{{name}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Type</label>
+                        <input type="text" class="form-control" id="type" name="type" placeholder="Event Type">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" id="description" name="description" placeholder="Description"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="/admin/events" class="btn btn-default">Go Back</a>
+                </form>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</template>
