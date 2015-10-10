@@ -17,7 +17,7 @@ Template.edit_event.onRendered(function() {
 Template.list_events.events({
   //Delete the Event
   'click .delete_event': function(event){
-    if(confirm('Are you sure to delete this'))
+    if(confirm('Are you sure to cancel this Appointment'))
     {
         Events.remove(this._id);
     }

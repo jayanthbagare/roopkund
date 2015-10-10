@@ -240,3 +240,21 @@ bt {
 	/*font-size: 20px;*/
 	color: #1abc9c;
 }
+.glyphicon, .footer-icons{
+    color: #3E3d35;
+    border-color: #1abc9c; 
+}
+
+.panel-info, .panel-rating, .panel-more1 {
+    float: left;
+    margin: 0 10px;
+}
+
+.panel-detail {
+  float: right;
+  margin-right: 10px;
+}
+
+.panel-footer{
+  background-color: #fff;
+}
