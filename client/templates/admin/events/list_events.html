@@ -16,7 +16,7 @@
                     {{#each events}}
                         <tr>
                             <td>{{name}}</td>
-														<td>{{client}}</td>
+														<td>{{getClient client}}</td>
                             <td>{{eventDate}}</td>
                             <td>{{type}}</td>
                             <td><a href="/admin/events/{{_id}}/edit" class="btn btn-default btn-tiny">Edit</a> <button class="btn btn-default delete_event">Delete</button></td>
