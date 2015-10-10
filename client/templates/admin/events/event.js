@@ -33,38 +33,14 @@ Template.add_event.events({
     var client = event.target.client.value;
     var type = event.target.type.value;
     var eventDate = event.target.eventDate.value;
-
-    var file = $('#eventImage').get(0).files[0];
-
-    if(file){
-      fsFile = new FS.File(file);
-      EventImages.insert(fsFile,function(err,result){
-        if(!err){
-          var eventImage = '/cfs/files/EventImages/' + result._id;
-
-          console.log(client._id);
-
-          //Insert Event
-          Events.insert({
-            name: name,
-            description: description,
-            type: type,
-            client: client,
-            eventImages: eventImage,
-            eventDate: eventDate
-          });
-        }
+    //Insert Event
+      Events.insert({
+        name: name,
+        description: description,
+        type: type,
+        client: client,
+        eventDate: eventDate
       });
-    }else {
-          //Insert Event
-          Events.insert({
-            name: name,
-            description: description,
-            type: type,
-            client: client,
-            eventDate: eventDate
-          });
-    }
     FlashMessages.sendSuccess('Appointment Added');
     Router.go('/admin/events');
 
@@ -80,23 +56,30 @@ Template.add_event.events({
 //Helper Section begins here
 //====================================================
 //****************************************************
-Template.list_events.helpers({
-	events: function(){
-		return Events.find();
-	},
-  getClient: function(client){
-    console.log('Inside getClient ' + client);
-    //var clientName =  Clients.find({"_id":client},{fields:{'name'}});
-    //console.log(clientName.name);
-  }
+Template.registerHelper("getEvents", function(argument){
+  return Events.find();
 });
 
+Template.registerHelper("getClient", function(){
+  console.log('Inside getClient ' + this.client);
+  var clientName =  Clients.findOne({"_id":this.client});
+  console.log(clientName);
+  return clientName;
+});
 
-Template.add_event.helpers({
-  getClients: function(){
-    return Clients.find();
-  }
+Template.registerHelper("getClients", function(argument){
+  return Clients.find();
 });
 //Helper Section ends here.
+//====================================================
+//****************************************************
+
+
+//Generic methods starts here
+//====================================================
+//****************************************************
+
+
+//Generic methods ends here
 //====================================================
 //****************************************************

@@ -8,16 +8,20 @@
                 <table class="table table-striped">
                     <tr>
                         <th>Event Name</th>
-												<th>Client Name</th>
                         <th>Date</th>
+                        <th>Client Name</th>
+
                         <th>Type</th>
                         <th></th>
                     </tr>
-                    {{#each events}}
+                    {{#each getEvents}}
                         <tr>
                             <td>{{name}}</td>
-														<td>{{getClient client}}</td>
                             <td>{{eventDate}}</td>
+                            {{#with getClient}}
+														  <td>{{name}}</td>
+                            {{/with}}
+
                             <td>{{type}}</td>
                             <td><a href="/admin/events/{{_id}}/edit" class="btn btn-default btn-tiny">Edit</a> <button class="btn btn-default delete_event">Delete</button></td>
                         </tr>
