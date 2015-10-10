@@ -19,9 +19,13 @@ Template.list_events.events({
   'click .delete_event': function(event){
     if(confirm('Are you sure to cancel this Appointment'))
     {
-        Events.remove(this._id);
-    }
+      if(Meteor.call('sendSMS','+919739902121')){
+          Events.remove(this._id);
+      }else {
+          throw new Meteor.Error('Something went wrong in sending an SMS');
+      }
 
+    }
   }
 });
 
@@ -61,9 +65,7 @@ Template.registerHelper("getEvents", function(argument){
 });
 
 Template.registerHelper("getClient", function(){
-  console.log('Inside getClient ' + this.client);
   var clientName =  Clients.findOne({"_id":this.client});
-  console.log(clientName);
   return clientName;
 });
 

@@ -31,3 +31,5 @@ cfs:filesystem
 tsega:bootstrap3-datetimepicker
 jeremy:selectize
 natestrauser:select2
+mrt:twilio-meteor
+momentjs:moment
