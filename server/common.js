@@ -1,19 +1,18 @@
 if(Meteor.isServer)
 {
   Meteor.methods({
-    sendSMS: function(toNumber){
+    sendSMS: function(toNumber,eventDate){
               //Run Twilio here
-               console.log('Before instantiation of Twilio');
-               twilio = Twilio('AC8f3065529e4aea4b7a4acee592f2aaf7', '10ec18b89e3ea8d14101d8fe468b3b3c');
-               console.log('After instantiation of Twilio');
+               twilio = Twilio('AC15886b52bdb53ae37c3f2237955bb0d3', '78f868c47e97c113e05c4fe5ede64b4f');
+               body = 'Your appointment on ' + eventDate + ' has been cancelled by Rashmi DentaCare';
+               console.log('Number is ' + toNumber);
                twilio.sendSms({
                           to:toNumber, // Any number Twilio can deliver to
-                          from: '+15005550007', // A number you bought from Twilio and can use for outbound communication
-                          body: 'Your appointment (on 10th October) has been cancelled by Rashmi DentaCare' // body of the SMS message
+                          from: '+14696052859', // A number you bought from Twilio and can use for outbound communication
+                          body: body // body of the SMS message
                         }, function(err, responseData) { //this function is executed when a response is received from Twilio
                           if (!err) {
-                            console.log(err);
-                              return true;
+                            return true;
                           }
                           else {
                             {
@@ -22,7 +21,12 @@ if(Meteor.isServer)
                             }
                           }
                       });
-                    }
-              });
+                    },
+    mgetClient:function(client_id){
+       var client = Clients.findOne({"_id":client_id});
+       return client;
+    }
+
+});
 
 }

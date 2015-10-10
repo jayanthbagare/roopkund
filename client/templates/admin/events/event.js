@@ -19,12 +19,21 @@ Template.list_events.events({
   'click .delete_event': function(event){
     if(confirm('Are you sure to cancel this Appointment'))
     {
-      if(Meteor.call('sendSMS','+919739902121')){
-          Events.remove(this._id);
-      }else {
-          throw new Meteor.Error('Something went wrong in sending an SMS');
-      }
+      var event = this;
+      Meteor.call('mgetClient',this.client,function(error,result){
+        if(!error){
+            console.log('Event date is ' + event.eventDate)
+            Meteor.call('sendSMS',result.phone,event.eventDate,function(error,result){
+              if(!error){
+                Events.remove(event._id);
+              }
+              else{
+                throw new Meteor.Error('Could not send SMS, please try in some time again');
+              }
+            });
 
+        }
+      });
     }
   }
 });
@@ -75,7 +84,6 @@ Template.registerHelper("getClients", function(argument){
 //Helper Section ends here.
 //====================================================
 //****************************************************
-
 
 //Generic methods starts here
 //====================================================

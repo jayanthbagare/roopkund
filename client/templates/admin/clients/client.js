@@ -25,7 +25,7 @@ Template.edit_client.events({
     var phone = event.target.phone.value;
 
           //Upsert Client
-          Clients.update(email,{$set:{
+          Clients.update(this._id,{$set:{
             name: name,
             email: email,
             phone:phone
