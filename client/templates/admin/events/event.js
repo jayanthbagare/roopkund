@@ -1,3 +1,6 @@
+//Events section begins here
+//==========================================
+//******************************************
 Template.add_event.onRendered(function() {
     this.$('.datetimepicker').datetimepicker({
 
@@ -9,6 +12,17 @@ Template.add_event.onRendered(function() {
 
 Template.edit_event.onRendered(function() {
     this.$('.datetimepicker').datetimepicker();
+});
+
+Template.list_events.events({
+  //Delete the Event
+  'click .delete_event': function(event){
+    if(confirm('Are you sure to delete this'))
+    {
+        Events.remove(this._id);
+    }
+
+  }
 });
 
 Template.add_event.events({
@@ -28,7 +42,7 @@ Template.add_event.events({
         if(!err){
           var eventImage = '/cfs/files/EventImages/' + result._id;
 
-          console.log(result._id);
+          console.log(client._id);
 
           //Insert Event
           Events.insert({
@@ -59,26 +73,30 @@ Template.add_event.events({
 
 
 });
+//Event Section ends here.
+//====================================================
+//****************************************************
 
+//Helper Section begins here
+//====================================================
+//****************************************************
 Template.list_events.helpers({
 	events: function(){
 		return Events.find();
-	}
-});
-
-Template.list_events.events({
-  //Delete the Event
-  'click .delete_event': function(event){
-    if(confirm('Are you sure to delete this'))
-    {
-        Events.remove(this._id);
-    }
-
+	},
+  getClient: function(client){
+    console.log('Inside getClient ' + client);
+    //var clientName =  Clients.find({"_id":client},{fields:{'name'}});
+    //console.log(clientName.name);
   }
 });
+
 
 Template.add_event.helpers({
   getClients: function(){
     return Clients.find();
   }
 });
+//Helper Section ends here.
+//====================================================
+//****************************************************
