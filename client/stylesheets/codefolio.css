@@ -79,7 +79,7 @@ a:after {
     height: 1px;
     border: 0;
     border-top: 1px solid #ccc;
-    margin: 1em 0;
+    margin: 1px 0;
     padding: 0;
 }
 
@@ -129,29 +129,29 @@ a:after {
 /* Helpers */
 
 .mt {
-	margin-top: 40px;
-	margin-bottom: 40px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .pt {
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 
 /* +++++ WRAP SECTIONS +++++ */
 
 #ww {
-	padding-top: 70px;
-	padding-bottom: 70px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	background-color: #f2f2f2;
 }
 
 
 #footer {
 	background-color: #2f2f2f;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 #footer p {
@@ -161,7 +161,7 @@ a:after {
 #footer h4 {
 	color: white;
 	text-transform: uppercase;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 }
 
 
@@ -258,3 +258,5 @@ bt {
 .panel-footer{
   background-color: #fff;
 }
+
+ 

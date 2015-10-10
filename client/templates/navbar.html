@@ -2,15 +2,20 @@
   <!-- Static navbar -->
 <div class="navbar navbar-inverse navbar-static-top">
   <div class="container">
+  <a class="navbar-brand" href="{{pathFor 'home'}}"></a>
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{pathFor 'home'}}">Rashmi's Dental Clinic</a>
-    </div>
+      </div>
+
     <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-left">
+    <li><img src="assets/img/dentacare_logo.jpg" height=50px width=50px alt="homepage"></li>
+    <li><a href= "{{pathFor 'home'}}">Dentacare</a></li>
+    </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{pathFor 'projects'}}">Services Offered</a></li>
         <li><a href="{{pathFor 'about'}}">About</a></li>
@@ -22,6 +27,6 @@
       </ul>
 
     </div><!--/.nav-collapse -->
-  </div>
-</div>
-</template>
+    </div>
+    </div>
+    </template>
