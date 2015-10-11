@@ -81,6 +81,13 @@ Template.registerHelper("getClient", function(){
 Template.registerHelper("getClients", function(argument){
   return Clients.find();
 });
+
+//Format the time to the locale here
+Template.registerHelper("formatDateTime", function(givenDate){
+  return moment(givenDate).format("MM.DD.YYYY hh:mm:ss a");
+});
+
+
 //Helper Section ends here.
 //====================================================
 //****************************************************
