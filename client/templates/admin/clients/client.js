@@ -1,41 +1,19 @@
-Template.add_client.events({
-  'submit .add_client_form': function(event){
-    FS.Debug = true;
-    var name = event.target.name.value;
-    var email = event.target.email.value;
-    var phone = event.target.phone.value;
-
-          //Insert Event
-          Clients.insert({
-            name: name,
-            email: email,
-            phone:phone,
-          });
-    FlashMessages.sendSuccess('Client Added');
+AutoForm.addHooks(['add_client_form','edit_client_form'],{
+  onSuccess: function(operation,result,template){
+    FlashMessages.sendSuccess('Client Saved Successfully');
     Router.go('/admin/clients');
-
-    return false;
+  },
+  onError: function(operation,result,template){
+    FlashMessages.sendError('Could not save ' + result);
   }
 });
 
-Template.edit_client.events({
-  'submit .edit_client_form': function(event){
-    var name = event.target.name.value;
-    var email = event.target.email.value;
-    var phone = event.target.phone.value;
-
-          //Upsert Client
-          Clients.update(this._id,{$set:{
-            name: name,
-            email: email,
-            phone:phone
-          }},true);
-    FlashMessages.sendSuccess('Client Changes Saved');
-    Router.go('/admin/clients');
-
-    return false;
+Template.edit_client.helpers({
+  selectedClient: function(){
+    return Clients.findOne({"_id":this._id});
   }
 });
+
 
 Template.list_clients.helpers({
 	clients: function(){
