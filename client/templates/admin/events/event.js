@@ -6,11 +6,11 @@ Template.add_event.onRendered(function() {
 
     });
 
-    //change the Select here.
+    //change Client to Select here.
     this.$('#client').selectize();
 });
 
-Template.edit_event.onRendered(function() {
+Template.edit_event.onRendered(function(event) {
     this.$('.datetimepicker').datetimepicker();
 });
 
@@ -22,8 +22,9 @@ Template.list_events.events({
       var event = this;
       Meteor.call('mgetClient',this.client,function(error,result){
         if(!error){
-            console.log('Event date is ' + event.eventDate)
-            Meteor.call('sendSMS',result.phone,event.eventDate,function(error,result){
+            body = 'Your appointment on ' + moment(event.eventDate).format('DD.MM.YYYY h:mm a') + ' has been cancelled by Rashmi DentaCare';
+
+            Meteor.call('sendSMS',result.phone,body,function(error,result){
               if(!error){
                 Events.remove(event._id);
               }
@@ -40,7 +41,7 @@ Template.list_events.events({
 
 Template.add_event.events({
   'submit .add_event_form': function(event){
-    FS.Debug = true;
+
     var name = event.target.name.value;
     var description = event.target.description.value;
     var client = event.target.client.value;
@@ -54,6 +55,19 @@ Template.add_event.events({
         client: client,
         eventDate: eventDate
       });
+    //Send an SMS for confirmation
+    var event = this;
+    Meteor.call('mgetClient',client,function(error,result){
+      if(!error){
+          body = 'Your appointment has been fixed on ' + moment(eventDate).format("DD.MM.YYYY h:mm a") + ' by Rashmi DentaCare';
+
+          Meteor.call('sendSMS',result.phone,body,function(error,result){
+            if(error){
+              throw new Meteor.Error('Could not send SMS, please try in some time again');
+            }
+          });
+      }
+    });
     FlashMessages.sendSuccess('Appointment Added');
     Router.go('/admin/events');
 
@@ -62,6 +76,50 @@ Template.add_event.events({
 
 
 });
+
+//Edit Handling for Events
+Template.edit_event.events({
+  'submit .edit_event_form': function(event){
+
+    var name = event.target.name.value;
+    var description = event.target.description.value;
+    var client = event.target.client.value;
+    var type = event.target.type.value;
+    var eventDate = event.target.eventDate.value;
+
+    oldEventData = Events.findOne({'_id':this._id},{eventDate:1});
+
+    //Upsert Event
+      Events.update(this._id,{$set:{
+        name: name,
+        description: description,
+        type: type,
+        //client: client,
+        eventDate: eventDate
+      }},true);
+
+    //Send an SMS if the old and new appointment dates are different.
+    if(oldEventData.eventDate != eventDate){
+        var event = this;
+        Meteor.call('mgetClient',oldEventData.client,function(error,result){
+          if(!error){
+              body = 'Your appointment from ' + moment(oldEventData.eventDate).format('DD.MM.YYYY h:mm a') + ' has been changed to ' + moment(eventDate).format('DD.MM.YYYY h:mm a') + ' by Rashmi DentaCare';
+
+              Meteor.call('sendSMS',result.phone,body,function(error,result){
+                if(error){
+                  throw new Meteor.Error('Could not send SMS, please try in some time again');
+                }
+              });
+          }
+        });
+      }
+    FlashMessages.sendSuccess('Appointment Edited');
+    Router.go('/admin/events');
+
+    return false;
+  }
+});
+
 //Event Section ends here.
 //====================================================
 //****************************************************
@@ -82,9 +140,10 @@ Template.registerHelper("getClients", function(argument){
   return Clients.find();
 });
 
+
 //Format the time to the locale here
 Template.registerHelper("formatDateTime", function(givenDate){
-  return moment(givenDate).format("MM.DD.YYYY hh:mm:ss a");
+  return moment(givenDate).format("MM.DD.YYYY-h:mm a");
 });
 
 

@@ -1,11 +1,9 @@
 if(Meteor.isServer)
 {
   Meteor.methods({
-    sendSMS: function(toNumber,eventDate){
+    sendSMS: function(toNumber,body){
               //Run Twilio here
                twilio = Twilio('AC15886b52bdb53ae37c3f2237955bb0d3', '78f868c47e97c113e05c4fe5ede64b4f');
-               body = 'Your appointment on ' + eventDate + ' has been cancelled by Rashmi DentaCare';
-               console.log('Number is ' + toNumber);
                twilio.sendSms({
                           to:toNumber, // Any number Twilio can deliver to
                           from: '+14696052859', // A number you bought from Twilio and can use for outbound communication
