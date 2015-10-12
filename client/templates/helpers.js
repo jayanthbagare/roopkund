@@ -11,7 +11,7 @@ Template.login.events({
         FlashMessages.sendError(err.reason);
       }else{
         FlashMessages.sendSuccess('You are now logged in');
-        Router.go('/admin/projects');
+        Router.go('/admin/events');
       }
     });
 

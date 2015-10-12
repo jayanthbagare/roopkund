@@ -24,14 +24,14 @@ Template.list_events.events({
         if(!error){
             body = 'Your appointment on ' + moment(event.eventDate).format('DD.MM.YYYY h:mm a') + ' has been cancelled by Rashmi DentaCare';
 
-            Meteor.call('sendSMS',result.phone,body,function(error,result){
+            /*Meteor.call('sendSMS',result.phone,body,function(error,result){
               if(!error){
                 Events.remove(event._id);
               }
               else{
                 throw new Meteor.Error('Could not send SMS, please try in some time again');
               }
-            });
+            });*/
 
         }
       });
@@ -61,11 +61,11 @@ Template.add_event.events({
       if(!error){
           body = 'Your appointment has been fixed on ' + moment(eventDate).format("DD.MM.YYYY h:mm a") + ' by Rashmi DentaCare';
 
-          Meteor.call('sendSMS',result.phone,body,function(error,result){
+          /*Meteor.call('sendSMS',result.phone,body,function(error,result){
             if(error){
               throw new Meteor.Error('Could not send SMS, please try in some time again');
             }
-          });
+          });*/
       }
     });
     FlashMessages.sendSuccess('Appointment Added');
@@ -105,11 +105,11 @@ Template.edit_event.events({
           if(!error){
               body = 'Your appointment from ' + moment(oldEventData.eventDate).format('DD.MM.YYYY h:mm a') + ' has been changed to ' + moment(eventDate).format('DD.MM.YYYY h:mm a') + ' by Rashmi DentaCare';
 
-              Meteor.call('sendSMS',result.phone,body,function(error,result){
+              /*Meteor.call('sendSMS',result.phone,body,function(error,result){
                 if(error){
                   throw new Meteor.Error('Could not send SMS, please try in some time again');
                 }
-              });
+              });*/
           }
         });
       }
@@ -143,7 +143,7 @@ Template.registerHelper("getClients", function(argument){
 
 //Format the time to the locale here
 Template.registerHelper("formatDateTime", function(givenDate){
-  return moment(givenDate).format("MM.DD.YYYY-h:mm a");
+  return moment(givenDate).format("DD.MM. YYYY-h:mm a");
 });
 
 
