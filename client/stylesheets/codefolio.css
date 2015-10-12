@@ -242,7 +242,7 @@ bt {
 }
 .glyphicon, .footer-icons{
     color: #3E3d35;
-    border-color: #1abc9c; 
+    border-color: #1abc9c;
 }
 
 .panel-info, .panel-rating, .panel-more1 {
@@ -259,4 +259,10 @@ bt {
   background-color: #fff;
 }
 
- 
+.client-card{
+  border-color: #1abc9c;
+}
+
+.client-card-header{
+  color: #3E3d35;
+}
