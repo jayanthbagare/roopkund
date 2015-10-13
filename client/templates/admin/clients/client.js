@@ -33,7 +33,7 @@ Template.list_clients.events({
 
   //Search Event Handler
   'click #search_button': function(event){
-    console.log('Search Button is Clicked ' + event);
+    console.log('Search Button is Clicked ' + $('#search').val());
     
   }
 });
