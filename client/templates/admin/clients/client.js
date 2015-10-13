@@ -29,5 +29,11 @@ Template.list_clients.events({
         Clients.remove(this._id);
     }
 
+  },
+
+  //Search Event Handler
+  'click #search_button': function(event){
+    console.log('Search Button is Clicked ' + event);
+    
   }
 });

@@ -1,9 +1,20 @@
 <template name="list_clients">
+
   <div class="container pt">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="input-group">
+          <input type="text" name="search" value="" placeholder="Search for..." class="form-control">
+          <span class="input-group-btn">
+            <button type="button" name="search_button" id="search_button" class="btn btn-default">Search</button>
+          </span>
+        </div>
+      </div>
+    </div>
       <div class="row">
-          <div class="col-lg-8 col-lg-offset-2">
-              <h2>Your Clients</h2>
-             <a href="/admin/clients/add" class="btn btn-default btn-tiny pull-right footer-icons">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+              <h3>Your Clients</h3>
+             <a href="/admin/clients/add" class="btn btn-default btn-tiny footer-icons pull-right">
                <i class="glyphicon glyphicon-plus"></i> Add a Client</a>
               <br><br>
           </div>
@@ -15,26 +26,25 @@
 
   <div class="container pt">
     <div class="row">
-
       <!--<div class="col-lg-8 col-lg-offset-2"> -->
         {{#each clients}}
-        <div class="col-lg-8 col-lg-offset-2">
-
-        <div class="panel panel-default client-card">
-          <div class="panel-heading">
-            <h3 class="panel-title client-card-header">{{name}}</h3>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+        <a href="/admin/clients/{{_id}}/edit" class="card-hover">
+          <div class="panel panel-default client-card">
+            <div class="panel-heading">
+              <h3 class="panel-title client-card-header">{{name}}</h3>
+            </div>
+            <div class="panel-body">
+              <p>
+                {{phone}}
+              </p>
+              {{email}}
+            </div>
+            <div class="panel-footer">
+              Panel footer
+            </div>
           </div>
-          <div class="panel-body">
-            <p class="pull-right">
-              {{phone}}
-            </p>
-            {{email}}
-          </div>
-          <div class="panel-footer">
-            Panel footer
-          </div>
-        </div>
-
+      </a>
       </div>
       {{/each}}
     </div>
