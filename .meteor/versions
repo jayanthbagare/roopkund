@@ -72,8 +72,12 @@ less@2.5.0_3
 livedata@1.0.15
 localstorage@1.0.5
 logging@1.0.8
+matteodem:easy-search@1.6.4
 meteor@1.1.9
 meteor-base@1.0.1
+meteor-platform@1.2.3
+meteorhacks:aggregate@1.2.1
+meteorhacks:collection-utils@1.2.0
 minifiers@1.1.7
 minimongo@1.0.10
 mobile-experience@1.0.1

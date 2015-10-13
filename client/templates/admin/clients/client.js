@@ -33,7 +33,10 @@ Template.list_clients.events({
 
   //Search Event Handler
   'click #search_button': function(event){
+    var search_term = $('.search_text').val();
     console.log('Search Button is Clicked ' + $('#search').val());
-    
+    EasySearch
+       .getComponentInstance({ index: 'clients' })
+       .search(search_term);
   }
 });
