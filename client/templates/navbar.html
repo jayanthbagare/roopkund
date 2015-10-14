@@ -21,6 +21,8 @@
         <li><a href="{{pathFor 'about'}}">About</a></li>
         <li><a href="{{pathFor 'contact'}}">Contact</a></li>
         {{#if currentUser}}
+          <li><a href="{{pathFor 'list_events'}}">Appointments</a></li>
+          <li><a href="{{pathFor 'list_clients'}}">Clients</a></li>
           <li><a class="logout">Logout</a></li>
         {{/if}}
       </ul>
