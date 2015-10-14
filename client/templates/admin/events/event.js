@@ -24,18 +24,26 @@ Template.list_events.events({
         if(!error){
             body = 'Your appointment on ' + moment(event.eventDate).format('DD.MM.YYYY h:mm a') + ' has been cancelled by Rashmi DentaCare';
 
-            Meteor.call('sendSMS',result.phone,body,function(error,result){
+            /*Meteor.call('sendSMS',result.phone,body,function(error,result){
               if(!error){
                 Events.remove(event._id);
               }
               else{
                 throw new Meteor.Error('Could not send SMS, please try in some time again');
               }
-            });
+            });*/
 
         }
       });
     }
+  },
+  //Search Event Handler
+  'click #search_button': function(event){
+    var search_term = $('.search_text').val();
+    console.log('Search Button is Clicked ' + $('#search').val());
+    EasySearch
+       .getComponentInstance({ index: 'events' })
+       .search(search_term);
   }
 });
 
@@ -61,11 +69,11 @@ Template.add_event.events({
       if(!error){
           body = 'Your appointment has been fixed on ' + moment(eventDate).format("DD.MM.YYYY h:mm a") + ' by Rashmi DentaCare';
 
-          Meteor.call('sendSMS',result.phone,body,function(error,result){
+          /*Meteor.call('sendSMS',result.phone,body,function(error,result){
             if(error){
               throw new Meteor.Error('Could not send SMS, please try in some time again');
             }
-          });
+          });*/
       }
     });
     FlashMessages.sendSuccess('Appointment Added');
@@ -105,11 +113,11 @@ Template.edit_event.events({
           if(!error){
               body = 'Your appointment from ' + moment(oldEventData.eventDate).format('DD.MM.YYYY h:mm a') + ' has been changed to ' + moment(eventDate).format('DD.MM.YYYY h:mm a') + ' by Rashmi DentaCare';
 
-              Meteor.call('sendSMS',result.phone,body,function(error,result){
+            /*  Meteor.call('sendSMS',result.phone,body,function(error,result){
                 if(error){
                   throw new Meteor.Error('Could not send SMS, please try in some time again');
                 }
-              });
+              });*/
           }
         });
       }
@@ -128,7 +136,15 @@ Template.edit_event.events({
 //====================================================
 //****************************************************
 Template.registerHelper("getEvents", function(argument){
-  return Events.find();
+  var now = moment(moment().format("DD.MM.YYYY"), "DD.MM.YYYY").toDate();
+  var till = moment(moment().format("DD.MM.YYYY"), "DD.MM.YYYY").add('days', 1).toDate();
+
+  return Events.find({
+    eventDate:{
+      $gte: now,
+      $lte: till
+    }
+  });
 });
 
 Template.registerHelper("getClient", function(){
@@ -145,6 +161,8 @@ Template.registerHelper("getClients", function(argument){
 Template.registerHelper("formatDateTime", function(givenDate){
   return moment(givenDate).format("DD.MM. YYYY-h:mm a");
 });
+
+
 
 
 //Helper Section ends here.
