@@ -284,6 +284,7 @@ input[type="text"]:focus,search_glow{
   display: block;
   width: 100%;
   height: auto;
+}
 
 .footer {
 	background-color: #2f2f2f;
