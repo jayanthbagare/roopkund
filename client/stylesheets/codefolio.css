@@ -271,8 +271,23 @@ bt {
 input[type="text"]{
   color:#3E3d35;
 }
-input[type="text"]:focus{
+input[type="text"]:focus,search_glow{
   border-color:#1abc9c;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(26, 188, 156, 1);
   outline: 0 none;
+}
+.footer {
+	background-color: #2f2f2f;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.footer p {
+	color: white;
+}
+
+.footer h4 {
+	color: white;
+	text-transform: uppercase;
+	padding-bottom: 10px;
 }
