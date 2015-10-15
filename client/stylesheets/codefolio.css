@@ -276,3 +276,11 @@ input[type="text"]:focus{
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(26, 188, 156, 1);
   outline: 0 none;
 }
+
+
+
+#owl-carousel .item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
