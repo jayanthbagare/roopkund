@@ -21,17 +21,12 @@
                         </div>
                     </div>
 
-
-                    <!-- <div class="form-group">
-                        <label>Client</label>
-                        <input type="text" class="form-control" id="client" name="client" placeholder="Client Name">
-                    </div> -->
                     <div class="form-group">
                       <label>Client</label>
                       <select id="client" name="client" placeholder="Select a client..">
                         <option value="">Select a Client..</option>
                         {{#each getClients}}
-                          <option value="{{_id}}">{{name}}</option>
+                            <option value="{{_id}}">{{name}}</option>
                         {{/each}}
                       </select>
                     </div>

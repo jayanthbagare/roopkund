@@ -2,12 +2,21 @@
 //==========================================
 //******************************************
 Template.add_event.onRendered(function() {
-    this.$('.datetimepicker').datetimepicker({
 
+  /*If the call is coming from Client screen then set the options*/
+  var client = Session.get('clientId');
+  if(client){
+    $('select[id="client"]').find('option[value='+ '"' + client + '"' + ']').attr("selected",true);
+    delete Session.keys['clientId'];
+  }
+  ///End Call from client screen
+    this.$('.datetimepicker').datetimepicker({
     });
 
     //change Client to Select here.
     this.$('#client').selectize();
+
+
 });
 
 Template.edit_event.onRendered(function(event) {
@@ -32,7 +41,7 @@ Template.list_events.events({
                 throw new Meteor.Error('Could not send SMS, please try in some time again');
               }
             });*/
-
+            Events.remove(event._id); //Remove this when SMS is enabled.
         }
       });
     }

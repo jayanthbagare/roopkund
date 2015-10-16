@@ -28,27 +28,29 @@
     <div class="row">
         {{#esEach index="clients"}}
         <div class="col-lg-4 col-md-4 col-sm-12">
-        <a href="/admin/clients/{{_id}}/edit" class="card-hover">
           <div class="panel panel-default client-card">
-            <div class="panel-heading">
-              <h3 class="panel-title client-card-header">{{name}}</h3>
-            </div>
-            <div class="panel-body">
-              <p>
-                {{phone}}
-              </p>
-              {{email}}
-            </div>
-            <div class="panel-footer">
-              Panel footer
-            </div>
-          </div>
-      </a>
-      </div>
+              <div class="panel-heading">
+                  <h3 class="panel-title client-card-header">{{name}}</h3>
+                </div> <!-- panel-heading -->
+              <a href="/admin/clients/{{_id}}/edit" class="card-hover">
+                <div class="panel-body">
+                  <p>
+                    {{phone}}
+                  </p>
+                  {{email}}
+                </div> <!-- panel body -->
+              </a>
+              <div class="panel-footer">
+                <a href="/admin/events/add" id="add_event" class="btn btn-default btn-tiny footer-icons">
+                  <i class="glypphicon glyphicon-calendar"></i>
+                  <span class="hidden-xs">Schedule Appointment</span>
+                </a>
+              </div> <!-- panel footer -->
+          </div> <!-- panel client-card -->
+        </div><!-- col-lg-4 -->
       {{/esEach}}
+    </div> <!-- row -->
 
-
-    </div>
     <div class="search-controls">
       {{> esLoadMoreButton index="clients" howMany=20}}
     </div>
@@ -61,5 +63,4 @@
       <div>Loading...</div>
     {{/ifEsIsSearching}}
   </div>
-
 </template>
