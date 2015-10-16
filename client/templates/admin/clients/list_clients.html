@@ -27,7 +27,7 @@
   <div class="container pt">
     <div class="row">
         {{#esEach index="clients"}}
-        <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="col-lg-6 col-md-6 col-sm-12">
           <div class="panel panel-default client-card">
               <div class="panel-heading">
                   <h3 class="panel-title client-card-header">{{name}}</h3>
@@ -41,11 +41,36 @@
                 </div> <!-- panel body -->
               </a>
               <div class="panel-footer">
-                <a href="/admin/events/add" id="add_event" class="btn btn-default btn-tiny footer-icons">
-                  <i class="glypphicon glyphicon-calendar"></i>
-                  <span class="hidden-xs">Schedule Appointment</span>
-                </a>
-              </div> <!-- panel footer -->
+                  <a href="/admin/events/add" id="add_event"
+                  class="btn btn-default btn-tiny footer-icons ">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                    <span class="hidden-xs hidden-sm hidden-md small">Schedule</span>
+                  </a>
+
+                  <a href="/admin/events/add" id="add_event"
+                  class="btn btn-default btn-tiny footer-icons ">
+                    <i class="glyphicon glyphicon-paperclip"></i>
+                    <span class="hidden-xs hidden-sm hidden-md small">Attach</span>
+                  </a>
+
+                  <a href="{{phone}}" id="add_event"
+                  class="btn btn-default btn-tiny footer-icons pull-right">
+                    <i class="glyphicon glyphicon-earphone"></i>
+                    <span class="hidden-xs hidden-sm hidden-md small">Call</span>
+                  </a>
+
+                  <a href="/admin/events/add" id="add_event"
+                  class="btn btn-default btn-tiny footer-icons ">
+                    <i class="glyphicon glyphicon-comment"></i>
+                    <span class="hidden-xs hidden-sm hidden-md small">Message</span>
+                  </a>
+
+                  <a href="/admin/events/add" id="add_event"
+                  class="btn btn-default btn-tiny footer-icons ">
+                    <i class="glyphicon glyphicon-credit-card"></i>
+                    <span class="hidden-xs hidden-sm hidden-md small">Invoice</span>
+                  </a>
+            </div> <!-- panel footer -->
           </div> <!-- panel client-card -->
         </div><!-- col-lg-4 -->
       {{/esEach}}
