@@ -23,10 +23,10 @@ body {
 }
 
 /* Titles */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,.date-color {
 	font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    color: #333;
+    color: #3E3d35;
 }
 
 h1 {
@@ -304,79 +304,24 @@ input[type="text"]:focus,search_glow{
 	padding-bottom: 10px;
 }
 
-
-/*Date Picker CSS*/
-.fa.pull-right {
-    margin-left: 0.1em;
+.glyphicon-menu-left,.glyphicon-menu-right{
+  font-size: 1.5em;
+	color: #1abc9c;
+}
+.chosenDate{
+  display:inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: justify;
+  font-size: 1.5em;
 }
 
-.date-picker,
-.date-container {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    color: rgb(75, 77, 78);
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+.glyphicon-calendar{
+  font-size:1.5em;
+  color:#1abc9c;
+  margin-left: 20px;
+  align-content: center;
 }
-.date-container {
-    padding: 0px 40px;
-}
-.date-picker h2, .date-picker h4 {
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 200;
-}
-.date-container .date {
-    text-align: center;
-}
-.date-picker span.fa {
-    position: absolute;
-    font-size: 4em;
-    font-weight: 100;
-    padding: 8px 0px 7px;
-    cursor: pointer;
-    top: 0px;
-}
-.date-picker span.fa[data-type="subtract"] {
-    left: 0px;
-}
-.date-picker span.fa[data-type="add"] {
-    right: 0px;
-}
-.date-picker span[data-toggle="calendar"] {
-    display: block;
-    position: absolute;
-    top: -7px;
-    right: 45px;
-    font-size: 1em !important;
-    cursor: pointer;
-}
-
-.date-picker .input-datepicker {
-    display: none;
-    position: absolute;
-    top: 50%;
-    margin-top: -17px;
-    width:100%;
-}
-.date-picker .input-datepicker.show-input {
-    display: table;
-}
-
-@media (min-width: 768px) and (max-width: 1010px) {
-    .date-picker h2{
-        font-size: 1.5em;
-        font-weight: 400;
-    }
-    .date-picker h4 {
-        font-size: 1.1em;
-    }
-    .date-picker span.fa {
-        font-size: 3em;
-    }
+.create-one{
+  margin-right: -6px;
 }

@@ -2,7 +2,6 @@
 //==========================================
 //******************************************
 Template.add_event.onRendered(function() {
-
   /*If the call is coming from Client screen then set the options*/
   var client = Session.get('clientId');
   if(client){
@@ -15,6 +14,16 @@ Template.add_event.onRendered(function() {
 
     //change Client to Select here.
     this.$('#client').selectize();
+
+
+});
+
+Template.list_events.onRendered(function(event){
+  var chosenDate = $('#chosenDate').text()
+  if(!chosenDate)
+  {
+    this.$('#chosenDate').text(moment().format('DD.MM.YYYY'));
+  }
 
 
 });
@@ -53,6 +62,14 @@ Template.list_events.events({
     EasySearch
        .getComponentInstance({ index: 'events' })
        .search(search_term);
+  },
+  'click #subtract':function(event){
+    var chosenDate = moment($('#chosenDate').text(),"DD.MM.YYYY");
+    $('#chosenDate').text(moment(moment(chosenDate).subtract(1,'days')).format('DD.MM.YYYY'));
+  },
+  'click #add':function(event){
+    var chosenDate = moment($('#chosenDate').text(),"DD.MM.YYYY");
+    $('#chosenDate').text(moment(moment(chosenDate).add(1,'days')).format('DD.MM.YYYY'));
   }
 });
 
@@ -174,34 +191,10 @@ Template.registerHelper("formatDateTime", function(givenDate){
 //Get the date of today
 Template.registerHelper("getToday", function(){
   var today = moment();
-  today = moment(today,"YYYY/MM/DD");
+  today = moment(today).format("DD.MM.YYYY");
   return today;
 });
 
-Template.registerHelper("getDay", function(pdate){
-  if(!pdate){
-    return moment().get('date');
-  }
-});
-Template.registerHelper("getMonth", function(pdate){
-  if(!pdate){
-      var month = moment().get('month');
-      return month + 1;
-    }
-});
-Template.registerHelper("getYear", function(pdate){
-  if(!pdate){
-    return moment().get('year');
-  }
-});
-Template.registerHelper("getWeekday", function(pdate){
-  if(!pdate){
-    var aMoment = moment.localeDate();
-    console.log()
-    var weekday_number = moment().weekday();
-    console.log(moment().weekdays(weekday_number));
-  }
-});
 
 
 //Helper Section ends here.
