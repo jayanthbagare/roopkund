@@ -171,7 +171,37 @@ Template.registerHelper("formatDateTime", function(givenDate){
   return moment(givenDate).format("DD.MM. YYYY-h:mm a");
 });
 
+//Get the date of today
+Template.registerHelper("getToday", function(){
+  var today = moment();
+  today = moment(today,"YYYY/MM/DD");
+  return today;
+});
 
+Template.registerHelper("getDay", function(pdate){
+  if(!pdate){
+    return moment().get('date');
+  }
+});
+Template.registerHelper("getMonth", function(pdate){
+  if(!pdate){
+      var month = moment().get('month');
+      return month + 1;
+    }
+});
+Template.registerHelper("getYear", function(pdate){
+  if(!pdate){
+    return moment().get('year');
+  }
+});
+Template.registerHelper("getWeekday", function(pdate){
+  if(!pdate){
+    var aMoment = moment.localeDate();
+    console.log()
+    var weekday_number = moment().weekday();
+    console.log(moment().weekdays(weekday_number));
+  }
+});
 
 
 //Helper Section ends here.
