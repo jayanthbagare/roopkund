@@ -14,26 +14,49 @@ Template.add_event.onRendered(function() {
 
     //change Client to Select here.
     this.$('#client').selectize();
+});
 
+Template.edit_event.onRendered(function(){
+  this.autorun(function(){
+      this.$('#datetimepicker').datetimepicker();
+  });
 
 });
 
 Template.list_events.onRendered(function(event){
+  //Set the chosen date to today, if there is no chosen date.
   var chosenDate = $('#chosenDate').text()
   if(!chosenDate)
   {
     this.$('#chosenDate').text(moment().format('DD.MM.YYYY'));
   }
 
+  /*
+    Set the text field to hidden else it will look ugly.
+  */
+  this.$('#txtChosenDate').attr('type', 'hidden');
+  this.$('#spinDate').datetimepicker({
+    showClose:true,
+    useCurrent: true,
+    showTodayButton:true,
+    format:"DD.MM.YYYY"
+  });
 
-});
+  this.$('#spinDate').on("dp.change",function(e){
+    /* On change of the date
+       make the spinner change the date on the div area and
+       fire the eventUI changed event.
+    */
+    console.log('Inside Date Picker');
+    $('#chosenDate').text(e.date.format("DD.MM.YYYY"));
+    eventsUI.changed();
+  });
+  //End of Date Change in Datepicker.
 
-Template.edit_event.onRendered(function(event) {
-    this.$('.datetimepicker').datetimepicker();
 });
 
 Template.list_events.events({
-  //Delete the Event
+    //Delete the Event
   'click .delete_event': function(event){
     if(confirm('Are you sure to cancel this Appointment'))
     {
@@ -64,12 +87,40 @@ Template.list_events.events({
        .search(search_term);
   },
   'click #subtract':function(event){
+    /*
+      Step 1: Take the chosen date from the spinner
+      Step 2: Subtract one day to it.
+    */
     var chosenDate = moment($('#chosenDate').text(),"DD.MM.YYYY");
     $('#chosenDate').text(moment(moment(chosenDate).subtract(1,'days')).format('DD.MM.YYYY'));
+
+    /*Call here to get the latest Events based on the date change.
+      Step 1: Call the getEvents global helper which is defined
+      Step 2: Trigger the eventsUI changed. This is marked as a
+              dependency in the getEvents
+    */
+    Blaze._globalHelpers.getEvents();
+    eventsUI.changed();
   },
   'click #add':function(event){
+    /*
+      Step 1: Take the chosen date from the spinner
+      Step 2: Subtract one day to it.
+    */
     var chosenDate = moment($('#chosenDate').text(),"DD.MM.YYYY");
     $('#chosenDate').text(moment(moment(chosenDate).add(1,'days')).format('DD.MM.YYYY'));
+
+    /*Call here to get the latest Events based on the date change.
+      Step 1: Call the getEvents global helper which is defined
+      Step 2: Trigger the eventsUI changed. This is marked as a
+              dependency in the getEvents
+    */
+    Blaze._globalHelpers.getEvents();
+    eventsUI.changed();
+  },
+  'click #chooseCalendar': function(event){
+    $('#spinDate').datetimepicker({});
+
   }
 });
 
@@ -161,16 +212,20 @@ Template.edit_event.events({
 //Helper Section begins here
 //====================================================
 //****************************************************
-Template.registerHelper("getEvents", function(argument){
-  var now = moment(moment().format("DD.MM.YYYY"), "DD.MM.YYYY").toDate();
-  var till = moment(moment().format("DD.MM.YYYY"), "DD.MM.YYYY").add('days', 1).toDate();
 
-  return Events.find({
-    eventDate:{
-      $gte: now,
-      $lte: till
-    }
-  });
+var eventsUI = new Tracker.Dependency;
+Template.registerHelper("getEvents", function(argument){
+  eventsUI.depend();
+
+  var now = moment($('#chosenDate').text(),"DD.MM.YYYY").toDate();
+  var till = moment(now).add(1,'days').toDate()
+
+      var result = Events.find({
+        eventDate:{
+          $gte:now
+        , $lte:till
+        }});
+    return result;
 });
 
 Template.registerHelper("getClient", function(){
@@ -185,7 +240,7 @@ Template.registerHelper("getClients", function(argument){
 
 //Format the time to the locale here
 Template.registerHelper("formatDateTime", function(givenDate){
-  return moment(givenDate).format("DD.MM. YYYY-h:mm a");
+  return moment(givenDate).format("DD.MM.YYYY-h:mm a");
 });
 
 //Get the date of today

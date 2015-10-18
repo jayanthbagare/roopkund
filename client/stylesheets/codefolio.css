@@ -16,7 +16,7 @@ body {
   	font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 14px;
-    color: #555;
+    color: #3E3d35;
 
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
@@ -307,21 +307,34 @@ input[type="text"]:focus,search_glow{
 .glyphicon-menu-left,.glyphicon-menu-right{
   font-size: 1.5em;
 	color: #1abc9c;
+  margin-left: 0px;
 }
 .chosenDate{
-  display:inline-block;
-  margin-left: 10px;
-  margin-right: 10px;
+  display:inline;
+  margin-right: 5px;
   text-align: justify;
   font-size: 1.5em;
 }
 
-.glyphicon-calendar{
-  font-size:1.5em;
-  color:#1abc9c;
-  margin-left: 20px;
-  align-content: center;
-}
 .create-one{
-  margin-right: -6px;
+  margin-right: -15px;
+}
+
+.span-calendar{
+  margin:0px;
+  padding:0px;
+  display: inline;
+}
+.cal_spinner{
+  background-color: #fff;
+  border:0px;
+  padding:0px;
+  display:inline;
+  color:#1abc9c;
+}
+
+.bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover{
+  background-color: #1abc9c;
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }

@@ -15,16 +15,24 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <!-- Make the datepicker here -->
-                <div class="col-lg-6 col-md-6 col-sm-12 pull-left">
-                  <h3>Appointments for </h3>
+                <div class="col-lg-6 col-md-6 col-sm-12 pull-left input-group">
+                  <h3 style="margin-left:0px;">Appointments for </h3>
                   <i id="subtract" class="glyphicon glyphicon-menu-left"></i>
-                  <span id="chosenDate" class="chosenDate" ></span>
+                  <span id="chosenDate" class="chosenDate set-due-date" ></span>
                   <i id="add" class="glyphicon glyphicon-menu-right"></i>
-                  <i id="calendar" class="glyphicon glyphicon-calendar"></i>
+
+                  <div class="input-group date" id="spinDate">
+                    <i class=" input-group-addon cal_spinner glyphicon glyphicon-calendar" style="cursor:pointer;"></i>
+                    <!-- <span class="input-group-addon cal_spinner">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span> -->
+                    <input type="text" class="form-control" id="txtChosenDate">
+                    <!-- <i class=" input-group-addon cal_spinner glyphicon glyphicon-calendar" style="cursor:pointer;"></i> -->
+                  </div>
                 </div>
               <br/><br/>
-              <div class="col-lg-6 col-md-6 col-sm-12 pull-right create-one">
-                 <a href="/admin/events/add" class="btn btn-default btn-tiny footer-icons pull-right">
+              <div class="col-lg-6 col-md-6 col-sm-12 pull-right">
+                 <a href="/admin/events/add" class="btn btn-default btn-tiny footer-icons pull-right create-one">
                    <i class="glyphicon glyphicon-plus"></i>
                    <span class="hidden-xs">Create One</span>
                  </a>
