@@ -1,93 +1,66 @@
 <template name="list_events">
-
-    <div class="container pt">
-      <!-- <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-          <div class="input-group">
-            {{> esInput index="events" placeholder="Search Appointments..." class="form-control search_text" event="enter" allDocsOnEmpty=true}}
-            <span class="input-group-btn">
-              <button type="button" name="search_button" id="search_button" class="btn btn-default">Search</button>
-            </span>
-          </div>
-        </div>
-      </div> -->
-
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <!-- Make the datepicker here -->
-                <div class="col-lg-6 col-md-6 col-sm-12 pull-left input-group">
-                  <h3 style="margin-left:0px;">Appointments for </h3>
-                  <i id="subtract" class="glyphicon glyphicon-menu-left"></i>
-                  <span id="chosenDate" class="chosenDate set-due-date" ></span>
-                  <i id="add" class="glyphicon glyphicon-menu-right"></i>
-
-                  <div class="input-group date" id="spinDate">
-                    <i class=" input-group-addon cal_spinner glyphicon glyphicon-calendar" style="cursor:pointer;"></i>
-                    <!-- <span class="input-group-addon cal_spinner">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                    </span> -->
-                    <input type="text" class="form-control" id="txtChosenDate">
-                    <!-- <i class=" input-group-addon cal_spinner glyphicon glyphicon-calendar" style="cursor:pointer;"></i> -->
-                  </div>
-                </div>
-              <br/><br/>
-              <div class="col-lg-6 col-md-6 col-sm-12 pull-right">
-                 <a href="/admin/events/add" class="btn btn-default btn-tiny footer-icons pull-right create-one">
-                   <i class="glyphicon glyphicon-plus"></i>
-                   <span class="hidden-xs">Create One</span>
-                 </a>
-                  <br><br>
-              </div>
-         </div>
+<div class="container pt">
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+      <h4>Appointments For</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-lg-6 col-xs-6">
+      <div class="input-group" id="spinDate">
+        <i id="subtract" class="glyphicon glyphicon-menu-left"></i>
+        <span id="chosenDate" class="chosenDate set-due-date"></span>
+        <i id="add" class="glyphicon glyphicon-menu-right"></i>
+        <i class="input-group-addon cal_spinner glyphicon glyphicon-calendar"></i>
+        <input type="text" class="form-control pull-left" id="txtChosenDate">
       </div>
     </div>
-      <div class="container pt">
-        <div class="row">
-              {{#each getEvents}}
-            <div class="col-lg-12 col-md-10 col-sm-4">
 
-
-              <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">{{name}}</h3>
-                  </div>
-                  <div class="panel-body">
-                    {{type}}
-
-                    <p class="pull-right">{{formatDateTime eventDate}}</p>
-                    {{#with getClient}}
-                      <p>{{name}}</p>
-                    {{/with}}
-
-                  </div>
-                  <div class="panel-footer">
-                      <a href="/admin/events/{{_id}}/edit" class="btn btn-default btn-tiny footer-icons">
-                          <i class="glyphicon glyphicon-pencil"></i>
-                        <span class="hidden-xs">Edit Appointment</span>
-                      </a>
-                      <a href="#" class="btn btn-default btn-tiny delete_event footer-icons">
-                          <i class="glyphicon glyphicon-remove"></i>
-                        <span class="hidden-xs">Cancel Appointment</span>
-                      </a>
-                </div>
-            </div>
-
-
-            </div>
-            {{/each}}
-          </div>
-
-          <!-- <div class="search-controls">
-            {{> esLoadMoreButton index="events" howMany=20}}
-          </div>
-
-          {{#ifEsHasNoResults index="events"}}
-            <div class="no-results">No results found!</div>
-          {{/ifEsHasNoResults}}
-
-          {{#ifEsIsSearching index="events"}}
-            <div>Loading...</div>
-          {{/ifEsIsSearching}}
-        </div> -->
+    <div class="col-md-6 col-lg-6 col-xs-6">
+      <div class="pull-right">
+        <a href="/admin/events/add" class="btn btn-default btn-tiny footer-icons">
+         <i class="glyphicon glyphicon-plus"></i>
+         <span class="hidden-xs">Create One</span>
+       </a>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="container pt">
+       <div class="row">
+             {{#each getEvents}}
+           <div class="col-lg-12 col-md-10 col-sm-4">
+
+
+             <div class="panel panel-default">
+                 <div class="panel-heading">
+                   <h3 class="panel-title">{{name}}</h3>
+                 </div>
+                 <div class="panel-body">
+                   {{type}}
+
+                   <p class="pull-right">{{formatDateTime eventDate}}</p>
+                   {{#with getClient}}
+                     <p>{{name}}</p>
+                   {{/with}}
+
+                 </div>
+                 <div class="panel-footer">
+                     <a href="/admin/events/{{_id}}/edit" class="btn btn-default btn-tiny footer-icons">
+                         <i class="glyphicon glyphicon-pencil"></i>
+                       <span class="hidden-xs">Edit Appointment</span>
+                     </a>
+                     <a href="#" class="btn btn-default btn-tiny delete_event footer-icons">
+                         <i class="glyphicon glyphicon-remove"></i>
+                       <span class="hidden-xs">Cancel Appointment</span>
+                     </a>
+               </div>
+           </div>
+
+
+           </div>
+           {{/each}}
+         </div>
+     </div>
 </template>

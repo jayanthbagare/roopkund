@@ -18,7 +18,9 @@ Template.add_event.onRendered(function() {
 
 Template.edit_event.onRendered(function(){
   this.autorun(function(){
-      this.$('#datetimepicker').datetimepicker();
+      console.log('Inside edit Event for datepicker.');
+       $('#datetimepicker').datetimepicker({
+      });
   });
 
 });
@@ -39,7 +41,11 @@ Template.list_events.onRendered(function(event){
     showClose:true,
     useCurrent: true,
     showTodayButton:true,
-    format:"DD.MM.YYYY"
+    format:"DD.MM.YYYY",
+    widgetPositioning:{
+      horizontal:"left",
+      vertical:"auto"
+    }
   });
 
   this.$('#spinDate').on("dp.change",function(e){
@@ -47,12 +53,10 @@ Template.list_events.onRendered(function(event){
        make the spinner change the date on the div area and
        fire the eventUI changed event.
     */
-    console.log('Inside Date Picker');
     $('#chosenDate').text(e.date.format("DD.MM.YYYY"));
     eventsUI.changed();
   });
   //End of Date Change in Datepicker.
-
 });
 
 Template.list_events.events({
@@ -91,6 +95,7 @@ Template.list_events.events({
       Step 1: Take the chosen date from the spinner
       Step 2: Subtract one day to it.
     */
+
     var chosenDate = moment($('#chosenDate').text(),"DD.MM.YYYY");
     $('#chosenDate').text(moment(moment(chosenDate).subtract(1,'days')).format('DD.MM.YYYY'));
 
@@ -99,6 +104,7 @@ Template.list_events.events({
       Step 2: Trigger the eventsUI changed. This is marked as a
               dependency in the getEvents
     */
+
     Blaze._globalHelpers.getEvents();
     eventsUI.changed();
   },
@@ -117,10 +123,6 @@ Template.list_events.events({
     */
     Blaze._globalHelpers.getEvents();
     eventsUI.changed();
-  },
-  'click #chooseCalendar': function(event){
-    $('#spinDate').datetimepicker({});
-
   }
 });
 
@@ -218,13 +220,13 @@ Template.registerHelper("getEvents", function(argument){
   eventsUI.depend();
 
   var now = moment($('#chosenDate').text(),"DD.MM.YYYY").toDate();
-  var till = moment(now).add(1,'days').toDate()
-
+  var till = moment(now).add(1,'days').toDate();
       var result = Events.find({
         eventDate:{
           $gte:now
         , $lte:till
         }});
+
     return result;
 });
 
