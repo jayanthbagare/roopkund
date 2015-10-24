@@ -7,4 +7,6 @@ Meteor.startup(function(){
       password: "initial1"
     });
   }
+  //Seed the indexes into MongoDB
+  //Events.createIndex({name:'text',type:'text'});
 });

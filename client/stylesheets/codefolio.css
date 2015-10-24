@@ -309,17 +309,19 @@ input[type="text"]:focus,search_glow{
   font-size: 2.3em;
 	color: #1abc9c;
 }
+
 .chosenDate{
   display:inline-block;
   text-align: justify;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .cal_spinner{
   background-color: #fff;
-  display:inline;
-  border:0;
+  display:inline-block;
+  border:1px;
   padding:0;
   cursor:pointer;
-  color:#1abc9c;
+  color:#3E3d35;
+  border-color: #1abc9c;
 }

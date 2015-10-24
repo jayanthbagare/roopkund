@@ -34,7 +34,7 @@ natestrauser:select2
 mrt:twilio-meteor
 momentjs:moment
 aldeed:autoform
-matteodem:easy-search
 autoupdate
 richsilv:owl-carousel
 udondan:slick
+matteodem:easy-search

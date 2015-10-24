@@ -26,5 +26,29 @@ if(Meteor.isServer)
     }
 
 });
+//Ensure Index is there.
+Events._ensureIndex({
+  "name":"text",
+  "type":"text"
+});
+
+//Publish the global methods
+Meteor.publish("searchEvents",function(searchTerm){
+  if(!searchTerm){
+    getEventsbyDate();
+  }
+});
+
+Meteor.publish("getEventsbyDate",function(chosenDate){
+  if(chosenDate){
+    var now = moment(chosenDate,"DD.MM.YYYY").toDate();
+    var till = moment(now).add(1,'days').toDate();
+        var result = Events.find({
+          eventDate:{
+            $gte:now
+          , $lte:till
+          }});
+  }
+});
 
 }

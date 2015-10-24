@@ -1,22 +1,39 @@
 <template name="list_events">
 <div class="container pt">
   <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <!-- <div class="input-group">
+        <input type="text" class="form-control search-text" id="txtSearchEvents" placeholder="Search Appointments....">
+        <span class="input-group-btn">
+          <button type="button" name="search_button" id="search_button" class="btn btn-default search_glow">Search</button>
+        </span>
+      </div> -->
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12">
-      <h4>Appointments For</h4>
+      <h4>Appointments For <span id="chosenDate" class="chosenDate set-due-date"></span></h4>
     </div>
   </div>
   <div class="row">
     <div class="col-md-6 col-lg-6 col-xs-6">
       <div class="input-group" id="spinDate">
-        <i id="subtract" class="glyphicon glyphicon-menu-left"></i>
+        <!-- <i id="subtract" class="glyphicon glyphicon-menu-left"></i>
         <span id="chosenDate" class="chosenDate set-due-date"></span>
-        <i id="add" class="glyphicon glyphicon-menu-right"></i>
-        <i class="input-group-addon cal_spinner glyphicon glyphicon-calendar"></i>
+        <i id="add" class="glyphicon glyphicon-menu-right"></i> -->
+        <!-- <i class="input-group-addon cal_spinner glyphicon glyphicon-calendar"></i> -->
         <input type="text" class="form-control pull-left" id="txtChosenDate">
       </div>
     </div>
 
     <div class="col-md-6 col-lg-6 col-xs-6">
+      <div class="pull-right">
+        <a href="/admin/events/add" class="btn btn-default btn-tiny footer-icons">
+         <i class="glyphicon glyphicon-calendar"></i>
+         <span class="hidden-xs">Choose Date</span>
+       </a>
+      </div>
+
       <div class="pull-right">
         <a href="/admin/events/add" class="btn btn-default btn-tiny footer-icons">
          <i class="glyphicon glyphicon-plus"></i>
@@ -63,4 +80,7 @@
            {{/each}}
          </div>
      </div>
+
+
+
 </template>

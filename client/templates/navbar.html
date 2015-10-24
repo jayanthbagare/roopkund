@@ -1,19 +1,70 @@
 <template name="navbar">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container pt">
+      <div class="row">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand hidden-xs hidden-sm" href="{{pathFor 'home'}}">Dentacare
+        <img src="/assets/img/dentacare_logo.jpg" height=50px width=50px alt="homepage"/>
+      </a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-responsive-collapse" id="menu_section">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{pathFor 'projects'}}">Services Offered</a></li>
+            <li><a href="{{pathFor 'about'}}">About</a></li>
+            <li><a href="{{pathFor 'contact'}}">Contact</a></li>
+            {{#if currentUser}}
+            <li><a href="{{pathFor 'list_events'}}">Appointments</a></li>
+            <li><a href="{{pathFor 'list_clients'}}">Clients</a></li>
+            <li><a class="logout">Logout</a></li>
+            {{/if}}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container pt">
+      <div class="row">
+        <div class="col-ls-6 col-md-6 col-xs-12 col-lg-offset-6 col-md-offset-6 pull-right">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="input-group-addon">
+              <i class="fa fa-search"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
   <!-- Static navbar -->
-<div class="navbar navbar-inverse navbar-static-top">
+  <!-- <div class="navbar navbar-inverse navbar-static-top">
   <div class="container">
   <a class="navbar-brand" href="{{pathFor 'home'}}"></a>
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      </div>
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="input-group navbar-nav navbar-bottom">
+      <input type="text" class="form-control search-text" id="txtSearchEvents" placeholder="Search Appointments....">
+      <span class="input-group-addon">
+        <i class="btn btn-default search_glow glyphicon glyphicon-search"></i>
+      </span>
+      <span class="input-group-btn">
+        <button type="button" name="search_button" id="search_button" class="btn btn-default search_glow glyphicon glyphicon-search"></button>
+      </span>
+    </div>
+  </div>
 
     <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav navbar-left">
-    <li><img src="assets/img/dentacare_logo.jpg" height=50px width=50px alt="homepage"></li>
+    <li><img src="/assets/img/dentacare_logo.jpg" height=50px width=50px alt="homepage"></li>
     <li><a href= "{{pathFor 'home'}}">Dentacare</a></li>
     </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -27,7 +78,10 @@
         {{/if}}
       </ul>
 
-    </div><!--/.nav-collapse -->
+
     </div>
     </div>
-    </template>
+    </div> -->
+
+
+</template>

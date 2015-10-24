@@ -24,7 +24,9 @@ Template.edit_event.onRendered(function(){
   });
 
 });
-
+Template.list_events.helpers({
+  eventsIndex: () => EventsIndex
+})
 Template.list_events.onRendered(function(event){
   //Set the chosen date to today, if there is no chosen date.
   var chosenDate = $('#chosenDate').text()
@@ -33,6 +35,8 @@ Template.list_events.onRendered(function(event){
     this.$('#chosenDate').text(moment().format('DD.MM.YYYY'));
   }
 
+  /*Set the search to beautiful */
+    this.$('#txtChosenDate').attr('type', 'hidden');
   /*
     Set the text field to hidden else it will look ugly.
   */
@@ -123,8 +127,14 @@ Template.list_events.events({
     */
     Blaze._globalHelpers.getEvents();
     eventsUI.changed();
+  },
+  //Search Event Handler
+  'click #search_button': function(event){
+    Blaze._globalHelpers.getEvents();
+    eventsUI.changed();
   }
 });
+
 
 Template.add_event.events({
   'submit .add_event_form': function(event){
@@ -216,17 +226,24 @@ Template.edit_event.events({
 //****************************************************
 
 var eventsUI = new Tracker.Dependency;
+
 Template.registerHelper("getEvents", function(argument){
   eventsUI.depend();
-
-  var now = moment($('#chosenDate').text(),"DD.MM.YYYY").toDate();
-  var till = moment(now).add(1,'days').toDate();
-      var result = Events.find({
-        eventDate:{
-          $gte:now
-        , $lte:till
-        }});
-
+  var search_term = $('#txtSearchEvents').val();
+  if(search_term){
+      console.log('Search Term is ' + search_term);
+      Meteor.subscribe("name", argument);
+  }
+  else
+  {
+    var now = moment($('#chosenDate').text(),"DD.MM.YYYY").toDate();
+    var till = moment(now).add(1,'days').toDate();
+        var result = Events.find({
+          eventDate:{
+            $gte:now
+          , $lte:till
+          }});
+  }
     return result;
 });
 
@@ -251,6 +268,7 @@ Template.registerHelper("getToday", function(){
   today = moment(today).format("DD.MM.YYYY");
   return today;
 });
+
 
 
 
