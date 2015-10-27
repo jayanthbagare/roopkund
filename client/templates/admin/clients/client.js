@@ -44,17 +44,23 @@ Template.list_clients.events({
 
   'click #attach_doc': function(event){
     var client = this._id;
-    filepicker.pick({
-      mimetypes:['image/gif','image/jpeg','image/png'],
+    filepicker.pickMultiple({
+      mimetypes:['image/*','text/*','video/*'],
+      services:['COMPUTER','WEBCAM','VIDEO','URL'],
       multiple:true
     },
     function(InkBlob){
-      if(InkBlob.url){
-          ClientImages.insert({
-            client:client,
-            imageURL: InkBlob.url
-          });
-      }
+      $.each(InkBlob,function(key,value){
+          if(value.url){
+              ClientImages.insert({
+                client:client,
+                imageURL: value.url
+              });
+          }
+
+      });
+
+
 
     }
   );
