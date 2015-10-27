@@ -17,20 +17,25 @@
   </div>
   <div class="row">
     <div class="col-md-6 col-lg-6 col-xs-6">
-      <div class="input-group" id="spinDate">
+      <div class="input-group" >
         <!-- <i id="subtract" class="glyphicon glyphicon-menu-left"></i>
         <span id="chosenDate" class="chosenDate set-due-date"></span>
         <i id="add" class="glyphicon glyphicon-menu-right"></i> -->
         <!-- <i class="input-group-addon cal_spinner glyphicon glyphicon-calendar"></i> -->
-        <input type="text" class="form-control pull-left" id="txtChosenDate">
+
       </div>
     </div>
 
     <div class="col-md-6 col-lg-6 col-xs-6">
-      <div class="pull-right">
-        <a href="/admin/events/add" class="btn btn-default btn-tiny footer-icons">
-         <i class="glyphicon glyphicon-calendar"></i>
-         <span class="hidden-xs">Choose Date</span>
+      <div class="pull-right input-group" id="spinDate">
+        <input type="text" class="form-control pull-left" id="txtChosenDate">
+        <a href="#" class="btn btn-default btn-tiny footer-icons spinDate">
+
+         <span class="input-group-addon override-group-addon">
+
+           <i class="glyphicon glyphicon-calendar innerSpin"></i>
+           <span class="hidden-xs">Choose Date</span>
+         </span>
        </a>
       </div>
 

@@ -47,7 +47,7 @@ Template.list_events.onRendered(function(event){
     showTodayButton:true,
     format:"DD.MM.YYYY",
     widgetPositioning:{
-      horizontal:"left",
+      horizontal:"auto",
       vertical:"auto"
     }
   });

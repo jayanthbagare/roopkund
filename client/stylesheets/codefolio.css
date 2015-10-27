@@ -325,3 +325,32 @@ input[type="text"]:focus,search_glow{
   color:#3E3d35;
   border-color: #1abc9c;
 }
+
+/*Choose Date CSS Override */
+.spinDate{
+  color: #3E3d35;
+  border-color: #1abc9c;
+
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.innserSpin{
+  background-color: #fff !important;
+  border: 0 0 0 0 !important;
+  border-color: #fff !important;
+}
+.override-group-addon{
+  background-color: #fff !important;
+  border: 0 !important;
+  padding: 2px 0px;
+}
