@@ -40,6 +40,24 @@ Template.list_clients.events({
   },
   'click #add_event': function(event){
     Session.set('clientId',this._id);
-  }
+  },
+
+  'click #attach_doc': function(event){
+    var client = this._id;
+    filepicker.pick({
+      mimetypes:['image/gif','image/jpeg','image/png'],
+      multiple:true
+    },
+    function(InkBlob){
+      if(InkBlob.url){
+          ClientImages.insert({
+            client:client,
+            imageURL: InkBlob.url
+          });
+      }
+
+    }
+  );
+}
 
 });

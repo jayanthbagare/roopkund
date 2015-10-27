@@ -12,3 +12,7 @@ Template.home.onRendered(function(){
     loop:true
   });
 });
+
+Meteor.startup(function(){
+  loadFilePicker('AnPk1pu8QKe93T4BNlqlxz');
+});
