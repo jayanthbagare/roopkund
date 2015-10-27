@@ -30,14 +30,6 @@ Template.list_clients.events({
     }
 
   },
-
-  //Search Event Handler
-  'click #search_button': function(event){
-    var search_term = $('.search_text').val();
-    // EasySearch
-    //    .getComponentInstance({ index: 'clients' })
-    //    .search(search_term);
-  },
   'click #add_event': function(event){
     Session.set('clientId',this._id);
   },

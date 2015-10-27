@@ -86,14 +86,6 @@ Template.list_events.events({
       });
     }
   },
-  //Search Event Handler
-  'click #search_button': function(event){
-    var search_term = $('.search_text').val();
-    console.log('Search Button is Clicked ' + $('#search').val());
-    EasySearch
-       .getComponentInstance({ index: 'events' })
-       .search(search_term);
-  },
   'click #subtract':function(event){
     /*
       Step 1: Take the chosen date from the spinner
@@ -127,12 +119,8 @@ Template.list_events.events({
     */
     Blaze._globalHelpers.getEvents();
     eventsUI.changed();
-  },
-  //Search Event Handler
-  'click #search_button': function(event){
-    Blaze._globalHelpers.getEvents();
-    eventsUI.changed();
   }
+
 });
 
 
@@ -232,7 +220,7 @@ Template.registerHelper("getEvents", function(argument){
   var search_term = $('#txtSearchEvents').val();
   if(search_term){
       console.log('Search Term is ' + search_term);
-      Meteor.subscribe("name", argument);
+      //Meteor.subscribe("name", argument);
   }
   else
   {
