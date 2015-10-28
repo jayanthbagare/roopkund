@@ -354,3 +354,14 @@ input[type="text"]:focus,search_glow{
   border: 0 !important;
   padding: 2px 0px;
 }
+
+.btn-circle {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+  
+}
