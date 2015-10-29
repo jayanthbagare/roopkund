@@ -397,6 +397,10 @@ input[type="text"]:focus,search_glow{
   z-index:177;
 }
 
+.timeline-font{
+  font-size:1.6em;
+}
+
 .timeline-panel{
   height:33%;
 }
