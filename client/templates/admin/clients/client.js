@@ -56,6 +56,9 @@ Template.list_clients.events({
 
     }
   );
-}
+},
+  'click #view_timeline': function(event){
+    
+  }
 
 });
