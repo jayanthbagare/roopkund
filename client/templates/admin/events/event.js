@@ -18,7 +18,6 @@ Template.add_event.onRendered(function() {
 
 Template.edit_event.onRendered(function(){
   this.autorun(function(){
-      console.log('Inside edit Event for datepicker.');
        $('#datetimepicker').datetimepicker({
       });
   });

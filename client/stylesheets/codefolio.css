@@ -1,329 +1,288 @@
-
-
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css);
-
 body {
-  	background-color: #ffffff;
-  	font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #3E3d35;
-
-    -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
+  background-color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #3E3d35;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Titles */
-h1, h2, h3, h4, h5, h6,.date-color {
-	font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color: #3E3d35;
-}
 
+h1, h2, h3, h4, h5, h6, .date-color {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #3E3d35;
+}
 h1 {
-	font-size: 35px;
-	margin-top: 30px;
-	margin-bottom: 30px;
+  font-size: 35px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
-
-
 
 /* Paragraph & Typographic */
-p {
-    line-height: 28px;
-    margin-bottom: 25px;
-    font-size: 16px;
-}
 
+p {
+  line-height: 28px;
+  margin-bottom: 25px;
+  font-size: 16px;
+}
 .centered {
-    text-align: center;
+  text-align: center;
 }
 
 /* Links */
+
 a {
-    color: #1abc9c;
-    word-wrap: break-word;
-
-    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
-    transition: color 0.1s ease-in, background 0.1s ease-in;
+  color: #1abc9c;
+  word-wrap: break-word;
+  -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+  -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+  -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+  -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+  transition: color 0.1s ease-in, background 0.1s ease-in;
 }
-
-a:hover,
-a:focus {
-    color: #7b7b7b;
-    text-decoration: none;
-    outline: 0;
+a:hover, a:focus {
+  color: #7b7b7b;
+  text-decoration: none;
+  outline: 0;
 }
-
-a:before,
-a:after {
-    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
-    transition: color 0.1s ease-in, background 0.1s ease-in;
+a:before, a:after {
+  -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+  -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+  -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+  -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+  transition: color 0.1s ease-in, background 0.1s ease-in;
 }
-
- hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1px 0;
-    padding: 0;
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1px 0;
+  padding: 0;
 }
-
-
 .navbar {
-	text-transform: uppercase;
-	margin-bottom: 0px;
+  text-transform: uppercase;
+  margin-bottom: 0px;
 }
-
 .navbar-inverse {
-	padding-bottom: 10px;
-	padding-top: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
-
 .navbar-inverse {
-	background-color: #1abc9c;
-	border-color: #16a085;
+  background-color: #1abc9c;
+  border-color: #16a085;
 }
-
 .navbar-inverse .navbar-nav > li > a {
-	color: white;
+  color: white;
 }
-
 .navbar-inverse .navbar-nav > li > a:hover {
-	color: #222222;
+  color: #222222;
 }
-
 .navbar-brand {
-	font-weight: 700;
-	font-size: 20px;
-	letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 2px;
 }
-
 .navbar-inverse .navbar-brand {
-	color: white;
+  color: white;
 }
-
 .navbar-inverse .navbar-toggle {
-	border-color: transparent;
+  border-color: transparent;
 }
-
 .progress-bar-theme {
   background-color: #1abc9c;
 }
 
-
 /* Helpers */
 
 .mt {
-	margin-top: 10px;
-	margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-
 .pt {
-	padding-top: 10px;
-	padding-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-
 
 /* +++++ WRAP SECTIONS +++++ */
 
 #ww {
-	padding-top: 20px;
-	padding-bottom: 20px;
-	background-color: #f2f2f2;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #f2f2f2;
 }
-
-
 #footer {
-	background-color: #2f2f2f;
-	padding-top: 10px;
-	padding-bottom: 10px;
+  background-color: #2f2f2f;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-
 #footer p {
-	color: white;
+  color: white;
 }
-
 #footer h4 {
-	color: white;
-	text-transform: uppercase;
-	padding-bottom: 10px;
+  color: white;
+  text-transform: uppercase;
+  padding-bottom: 10px;
 }
-
 
 /* +++++ Color Wraps / Blog Page +++++ */
 
 #grey {
-	padding-top: 60px;
-	padding-bottom: 60px;
-	background-color: #f2f2f2;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #f2f2f2;
 }
-
 #white {
-	padding-top: 60px;
-	padding-bottom: 60px;
-	background-color: #ffffff;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #ffffff;
 }
-
-
 
 /* Blog Date*/
+
 bd {
-	font-size: 12px;
-	text-transform: uppercase;
-	color: #d2d2d2;
-	font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #d2d2d2;
+  font-weight: 700;
 }
 
 /* Blog Author*/
+
 ba {
-	font-size: 12px;
-	text-transform: uppercase;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 /* Blog Quote */
+
 .bq {
-	font-size: 22px;
-	padding-top: 30px;
+  font-size: 22px;
+  padding-top: 30px;
 }
 
 /* Blog Tags */
+
 bt {
-	font-size: 12px;
+  font-size: 12px;
 }
 
 /* ================== PORTFOLIO IMAGES HOVER EFFECT ================== */
+
+
 /* Effects also are controled by hover.zoom.js */
+
 .zoom {
-    display:block;
-    position:relative;
-    overflow:hidden;
-    background:transparent url(../img/loader.gif) no-repeat center;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background: transparent url(../img/loader.gif) no-repeat center;
 }
-
-
-    .zoomOverlay {
-        position:absolute;
-        top:0; left:0;
-        bottom:0; right:0;
-        display:none;
-        background-image:url(../img/zoom.png);
-        background-repeat:no-repeat;
-        background-position:center;
-    }
-
+.zoomOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: none;
+  background-image: url(../img/zoom.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
 .zoom2 {
-	opacity: 1;
+  opacity: 1;
 }
-
 .zoom2:hover {
-	opacity: 0.5;
+  opacity: 0.5;
 }
 
 /*Custom CSS for Roopkund */
+
+
 /* glyphicon Configuration */
 
 .glyphicon {
-	/*font-size: 20px;*/
-	color: #1abc9c;
+  /*font-size: 20px;*/
+  color: #1abc9c;
 }
-.glyphicon, .footer-icons{
-    color: #3E3d35;
-    border-color: #1abc9c;
+.glyphicon, .footer-icons {
+  color: #3E3d35;
+  border-color: #1abc9c;
 }
-
 .panel-info, .panel-rating, .panel-more1 {
-    float: left;
-    margin: 0 10px;
+  float: left;
+  margin: 0 10px;
 }
-
 .panel-detail {
   float: right;
   margin-right: 10px;
 }
-
-.panel-footer{
+.panel-footer {
   background-color: #fff;
 }
-
-.client-card{
+.client-card {
   /*border-color: #1abc9c;*/
-  color:#3E3d35;
-}
-
-.client-card-header{
   color: #3E3d35;
 }
-
-input[type="text"]{
-  color:#3E3d35;
+.client-card-header {
+  color: #3E3d35;
 }
-input[type="text"]:focus,search_glow{
-  border-color:#1abc9c;
+input[type="text"] {
+  color: #3E3d35;
+}
+input[type="text"]:focus, search_glow {
+  border-color: #1abc9c;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(26, 188, 156, 1);
   outline: 0 none;
 }
-
-
-
-
 #owl-carousel .item img {
   display: block;
   width: 100%;
   height: auto;
 }
-
 .footer {
-	background-color: #2f2f2f;
-	padding-top: 10px;
-	padding-bottom: 10px;
+  background-color: #2f2f2f;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-
 .footer p {
-	color: white;
+  color: white;
 }
-
 .footer h4 {
-	color: white;
-	text-transform: uppercase;
-	padding-bottom: 10px;
+  color: white;
+  text-transform: uppercase;
+  padding-bottom: 10px;
 }
-
-.glyphicon-menu-left,.glyphicon-menu-right{
+.glyphicon-menu-left, .glyphicon-menu-right {
   font-size: 2.3em;
-	color: #1abc9c;
+  color: #1abc9c;
 }
-
-.chosenDate{
-  display:inline-block;
+.chosenDate {
+  display: inline-block;
   text-align: justify;
   font-size: 1em;
 }
-
-.cal_spinner{
+.cal_spinner {
   background-color: #fff;
-  display:inline-block;
-  border:1px;
-  padding:0;
-  cursor:pointer;
-  color:#3E3d35;
+  display: inline-block;
+  border: 1px;
+  padding: 0;
+  cursor: pointer;
+  color: #3E3d35;
   border-color: #1abc9c;
 }
 
 /*Choose Date CSS Override */
-.spinDate{
+
+.spinDate {
   color: #3E3d35;
   border-color: #1abc9c;
-
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
@@ -336,18 +295,16 @@ input[type="text"]:focus,search_glow{
   cursor: pointer;
   border-radius: 4px;
 }
-
-.innserSpin{
+.innserSpin {
   background-color: #fff !important;
   border: 0 0 0 0 !important;
   border-color: #fff !important;
 }
-.override-group-addon{
+.override-group-addon {
   background-color: #fff !important;
   border: 0 !important;
   padding: 2px 0px;
 }
-
 .btn-circle {
   width: 35px;
   height: 35px;
@@ -356,24 +313,25 @@ input[type="text"]:focus,search_glow{
   font-size: 12px;
   line-height: 1.428571429;
   border-radius: 15px;
-  border-color:#1abc9c;
+  border-color: #1abc9c;
 }
+
 /*Timeline CSS Begins here*/
-.timeline-badge{
+
+.timeline-badge {
   width: 35px;
   height: 35px;
   text-align: center;
   font-size: 12px;
   border-radius: 35px;
-  border-color:#1abc9c;
-  z-index:100;
-  float:left;
+  border-color: #1abc9c;
+  z-index: 100;
+  float: left;
   margin-left: -12px;
   margin-top: 25px;
-  background-color:#1abc9c;
+  background-color: #1abc9c;
 }
-
-.timeline-badge::after{
+.timeline-badge::after {
   content: '';
   position: absolute;
   top: 0;
@@ -381,45 +339,48 @@ input[type="text"]:focus,search_glow{
   height: 100%;
   width: 3px;
   background: #1abc9c;
-  z-index:106;
+  z-index: 106;
 }
-.inner-badge{
-  color:#fff;
-  position:relative;
+.inner-badge {
+  color: #fff;
+  position: relative;
   margin-top: 27%;
-  margin-left:-3px;
-  font-size:1.4em;
-  z-index:177;
+  margin-left: -3px;
+  font-size: 1.4em;
+  z-index: 177;
 }
-
-.timeline-font{
-  font-size:1.4em;
+.timeline-font {
+  font-size: 1.4em;
 }
-
-.timeline-panel{
-  height:33%;
+.timeline-panel {
+  height: 33%;
 }
-
-
+.timeline-image{
+  position:relative;
+  margin-left: 39.25%;
+}
 /*Timeline CSS Ends here*/
 
+
 /* Shadow Classes for the cards here */
+
 .box-shadow--2dp {
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)
 }
 .box-shadow--3dp {
-    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .2), 0 1px 8px 0 rgba(0, 0, 0, .12)
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .2), 0 1px 8px 0 rgba(0, 0, 0, .12)
 }
 .box-shadow--4dp {
-    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2)
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2)
 }
 .box-shadow--6dp {
-    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2)
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2)
 }
 .box-shadow--8dp {
-    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
 }
 .box-shadow--16dp {
-    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2)
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2)
 }
+
 /* Shadow Classed End here */
