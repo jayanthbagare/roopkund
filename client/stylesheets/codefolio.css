@@ -1,15 +1,8 @@
-/*
- * Author: Carlos Alvarez
- * URL: http://alvarez.is
- *
- * Project Name: STANLEY - Free Bootstrap 3 Theme
- * Version: 1.0
- * URL: http://blacktie.co
- */
+
 
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
-@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css);
 
 body {
   	background-color: #ffffff;
@@ -393,12 +386,14 @@ input[type="text"]:focus,search_glow{
 .inner-badge{
   color:#fff;
   position:relative;
-  margin-top: 30%;
+  margin-top: 27%;
+  margin-left:-3px;
+  font-size:1.4em;
   z-index:177;
 }
 
 .timeline-font{
-  font-size:1.6em;
+  font-size:1.4em;
 }
 
 .timeline-panel{
