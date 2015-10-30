@@ -56,6 +56,11 @@ Template.list_clients.events({
   'click #view_timeline': function(event){
     //Set the client session id to be retrieved in timeline.
     Session.set('clientId',this._id);
+  },
+  //Handle the SMS and messaging feature.
+  'click #sms_message': function(event){
+    //Call the Modal for SMS here.
+    $('#smsModal').modal("show");
   }
 });
 
