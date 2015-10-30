@@ -59,6 +59,15 @@ Template.list_clients.events({
   }
 });
 
+Template.timeline.events({
+  'click .timeline-panel': function(event){
+    event.preventDefault();
+    var imageURL = this.imageURL;
+    Session.set("imageModal",imageURL);
+    $("#imageModal").modal("show");
+  }
+});
+
 //Handle mimetype
 Template.registerHelper("handleMime",function(givenMime){
   console.log('Inside Handle Mime');
@@ -81,4 +90,10 @@ Template.registerHelper("getClientDocuments",function(argument){
 //Format the time to the locale here
 Template.registerHelper("formatDateTime", function(givenDate){
     return moment(givenDate).format("DD.MM.YYYY-h:mm a");
+});
+
+//Template for getting the current Image for modal
+Template.registerHelper("getImageModal", function(argument){
+  console.log(Session.get("imageModal"));
+  return Session.get("imageModal");
 });
