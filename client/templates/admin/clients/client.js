@@ -73,6 +73,21 @@ Template.timeline.events({
   }
 });
 
+Template.smsModal.onRendered(function(){
+  var charMax = 160;
+  $('#chars_left').html(charMax + ' characters remaining.');
+});
+
+Template.smsModal.events({
+  'keyup #smsText': function(event){
+
+      var text_length = $('#smsText').val().length;
+      var text_remaining = 160 - text_length;
+      console.log(text_remaining);
+      $('#chars_left').html(text_remaining + ' characters remaining.');
+  }
+});
+
 //Handle mimetype
 Template.registerHelper("handleMime",function(givenMime){
   console.log('Inside Handle Mime');

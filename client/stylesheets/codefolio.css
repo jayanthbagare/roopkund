@@ -361,6 +361,21 @@ input[type="text"]:focus, search_glow {
 }
 /*Timeline CSS Ends here*/
 
+/*Message CSS Begins here*/
+.modalClose{
+  margin-top: -18px;
+}
+.smsText{
+  display:flex;
+  position: relative;
+  width: auto;
+  height: auto;
+
+  border-color: #1abc9c;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(26, 188, 156, 1);
+  outline: 0 none;
+}
+/*Message CSS Ends here*/
 
 /* Shadow Classes for the cards here */
 

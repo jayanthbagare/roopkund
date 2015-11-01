@@ -1,15 +1,41 @@
 <template name="smsModal">
-  <div class="modal fade in" id="smsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" width="30%" height="50%">
+  <div class="modal fade in" id="smsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width:auto;height:auto;">
-      <div class="modal-content">
-        <div class="modal-header">
+      <!-- <div class="modal-content"> -->
+        <!-- <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title">Message to Client</h4>
-        </div>
+        </div> -->
         <div class="modal-body">
-          <textarea class="img-responsive"></textarea>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="panel panel-default client-card box-shadow--4dp">
+              <div class="panel-heading">
+                <h3 class="panel-title client-card-header">Send Message</h3>
+                <button type="button" class="close modalClose" data-dismiss="modal" aria-hidden="true">&times;</button>
+              </div>
+              <!-- panel-heading -->
+
+              <div class="panel-body">
+                <textarea id="smsText" class="smsText" rows="10" cols="60" maxlength="160"></textarea>
+                <br/>
+                <div id="chars_left">
+                </div>
+                <!-- panel body -->
+
+                <div class="panel-footer">
+                  <a href="#" id="sendMessage" class="btn btn-default btn-tiny footer-icons pull-right">
+                    <i class="glyphicon glyphicon-send"></i>
+                    <span class="hidden-xs hidden-sm hidden-md small">Send Message</span>
+                  </a>
+                </div>
+                <!-- panel footer -->
+              </div>
+              <!-- panel client-card -->
+            </div>
+            <!-- col-lg-4 -->
+          </div>
         </div>
-      </div>
+      <!-- </div> -->
     </div>
   </div>
 </template>
