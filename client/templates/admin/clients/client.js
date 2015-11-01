@@ -37,9 +37,11 @@ Template.list_clients.events({
   'click #attach_doc': function(event){
     var client = this._id;
     filepicker.pickMultiple({
-      mimetypes:['image/*','text/*','video/*'],
+      mimetypes:['image/*','text/*','video/*','application/pdf'],
+      //extensions:['*.jpg','*.jpeg','*.png','*.mp4','*.pdf','*.docx','*.xlsx','*.pptx'],
       services:['COMPUTER','WEBCAM','VIDEO','URL'],
-      multiple:true
+      multiple:true/*,
+      customCss:'app/client/stylesheets/filepicker.css'*/
     },
     function(InkBlob){
       $.each(InkBlob,function(key,value){
@@ -68,7 +70,9 @@ Template.timeline.events({
   'click .timeline-panel': function(event){
     event.preventDefault();
     var imageURL = this.imageURL;
+    console.log(imageURL);
     Session.set("imageModal",imageURL);
+    Session.set("mimeType",this.mimeType);
     $("#imageModal").modal("show");
   }
 });
@@ -88,15 +92,6 @@ Template.smsModal.events({
   }
 });
 
-//Handle mimetype
-Template.registerHelper("handleMime",function(givenMime){
-  console.log('Inside Handle Mime');
-  if(givenMime === "image/jpeg"){
-    return UI.toHTML("<img src='{{imageURL}}'>");
-  }else {
-    return UI.toHTML("<img src='{{imageURL}}'>");
-  }
-});
 
 //Register Helpers for getting the documents.
 Template.registerHelper("getClientDocuments",function(argument){
@@ -114,6 +109,31 @@ Template.registerHelper("formatDateTime", function(givenDate){
 
 //Template for getting the current Image for modal
 Template.registerHelper("getImageModal", function(argument){
-  console.log(Session.get("imageModal"));
-  return Session.get("imageModal");
+  var url = Session.get("imageModal");
+  var mimeType = Session.get("mimeType");
+
+  //Wire the right html based on the mimetype
+  //Later add regex to handle different file types
+  
+  if(mimeType == "application/pdf"){
+    console.log('returning pdf');
+    return "<div type='filepicker-preview' data-fp-url='" + url + "' style='width:auto; height:500px;'> </div>";
+  }else {
+    console.log('returning image');
+    return "<img src='" + url + "' class='img-responsive'>";
+  }
+});
+
+
+//Template for getting the current Image for modal
+Template.registerHelper("getMimeType", function(argument){
+  console.log(Session.get("mimeType"));
+  return Session.get("mimeType");
+});
+
+Template.registerHelper("pdfCheck", function(argument){
+  var mimeType = Session.get("mimeType");
+  if (mimeType == "application/pdf"){
+    return true;
+  }
 });

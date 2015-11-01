@@ -1,15 +1,17 @@
 <template name="imageModal">
   <div class="modal fade in" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width:auto;height:auto;">
+  <div class="modal-dialog" style="width:auto;height:auto;">
       <div class="modal-content">
-        <div class="modal-header">
+         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title">Big Image</h4>
         </div>
         <div class="modal-body">
-          <img src="{{getImageModal}}" class="img-responsive">
+          {{{getImageModal}}}
         </div>
       </div>
     </div>
+
   </div>
+
 </template>
