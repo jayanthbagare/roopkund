@@ -68,9 +68,7 @@ Template.list_clients.events({
 
 Template.timeline.events({
   'click .timeline-panel': function(event){
-    event.preventDefault();
     var imageURL = this.imageURL;
-    console.log(imageURL);
     Session.set("imageModal",imageURL);
     Session.set("mimeType",this.mimeType);
     $("#imageModal").modal("show");
@@ -114,26 +112,12 @@ Template.registerHelper("getImageModal", function(argument){
 
   //Wire the right html based on the mimetype
   //Later add regex to handle different file types
-  
+  file = url.substr(url.lastIndexOf('/') + 1 );
+  displayURL = 'https://www.filepicker.io/api/file/' + file;
+
   if(mimeType == "application/pdf"){
-    console.log('returning pdf');
-    return "<div type='filepicker-preview' data-fp-url='" + url + "' style='width:auto; height:500px;'> </div>";
+    return "<div type='filepicker-preview' data-fp-url='" + displayURL + "' style='width:auto; height:500px;'> </div>";
   }else {
-    console.log('returning image');
     return "<img src='" + url + "' class='img-responsive'>";
-  }
-});
-
-
-//Template for getting the current Image for modal
-Template.registerHelper("getMimeType", function(argument){
-  console.log(Session.get("mimeType"));
-  return Session.get("mimeType");
-});
-
-Template.registerHelper("pdfCheck", function(argument){
-  var mimeType = Session.get("mimeType");
-  if (mimeType == "application/pdf"){
-    return true;
   }
 });
